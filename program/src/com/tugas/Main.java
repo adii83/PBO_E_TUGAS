@@ -4,22 +4,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
-class User{
-    String nama;
-    String NIM;
-    String fakultas;
-    String prodi;
-
-    Admin admin;
-
-    User ( String nama,String NIM,String fakultas,String prodi){
-        this.nama=nama;
-        this.NIM=NIM;
-        this.fakultas=fakultas;
-        this.prodi=prodi;
-    }
-}
-
 class Buku{
     String id_buku;
     String judul;
@@ -38,6 +22,17 @@ class Buku{
 }
 
 class Student{
+    String nama;
+    String NIM;
+    String fakultas;
+    String prodi;
+
+    Student ( String nama,String NIM,String fakultas,String prodi){
+        this.nama=nama;
+        this.NIM=NIM;
+        this.fakultas=fakultas;
+        this.prodi=prodi;
+    }
     void displayBooks(){
         System.out.println("===== Daftar Buku =====");
         for (Buku buku : Main.bookList) {
@@ -79,7 +74,7 @@ class Admin{
 
     void displayStudent(){
         System.out.println("===== Daftar Mahasiswa =====");
-        for (User mahasiswa : Main.userStudent) {
+        for (Student mahasiswa : Main.userStudent) {
             System.out.println("Nama     : " + mahasiswa.nama);
             System.out.println("NIM      : " + mahasiswa.NIM);
             System.out.println("Fakultas : " + mahasiswa.fakultas);
@@ -92,14 +87,14 @@ class Admin{
 
 public class Main {
     Scanner Input = new Scanner(System.in);
-    static ArrayList<User> userStudent= new ArrayList<>();
+    static ArrayList<Student> userStudent= new ArrayList<>();
     static ArrayList<Buku> bookList= new ArrayList<>();    
     public static void main(String[] args) {
         Main all = new Main();
 
-        userStudent.add(new User("Slamet Hariyadi", "202310370311221", "Teknik","Informatika"));
-        userStudent.add(new User("Bagus Romadhon", "202310370311251", "Teknik", "Informatika"));
-        userStudent.add(new User("Rifqi Maulana Ishak", "202310370311252", "Teknik", "Informatika"));
+        userStudent.add(new Student("Slamet Hariyadi", "202310370311221", "Teknik","Informatika"));
+        userStudent.add(new Student("Bagus Romadhon", "202310370311251", "Teknik", "Informatika"));
+        userStudent.add(new Student("Rifqi Maulana Ishak", "202310370311252", "Teknik", "Informatika"));
 
         bookList.add(new Buku("388c-e681-9152", "Pemograman Java OOP", "Anan", "Ilmu Pengetahuan", 10));
         bookList.add(new Buku("ed90-be30-5cdb", "Laskar Pelangi", "Raditya Tantra", "Fiksi", 20));
@@ -141,13 +136,14 @@ public class Main {
         String NIM= Input.next();
             if (checkNim(NIM)){
             menuStudent();
+            
             }else {
             System.out.println("User Not Found!! ");
         }
     }    
  
     boolean checkNim(String NIM){
-        for (User student : userStudent) {
+        for (Student student : userStudent) {
             if (student.NIM.equals(NIM)) {
                 return true;
             }
@@ -156,7 +152,8 @@ public class Main {
     }
 
     void menuStudent(){
-        Student student = new Student();
+
+        Student student = new Student(null, null, null, null);
         int pilihan;
         do{
             System.out.println("====== Student Menu ======");
@@ -180,7 +177,7 @@ public class Main {
                     if (id.equals("99")) {
                         System.out.println("Kembali ke Menu Awal...");
                         menuStudent();                        
-                    }                   
+                    }                          
                     break;
                 case 3:
                     System.out.println("System Logout...");
