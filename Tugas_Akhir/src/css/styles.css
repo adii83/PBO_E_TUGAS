@@ -1,0 +1,41 @@
+.root {
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-background-color: #f9f9f9;
+}
+
+.label-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding: 20px 0;
+}
+
+.button {
+    -fx-background-color: #0077bff;
+    -fx-text-fill: #ff7f00;
+    -fx-font-size: 16px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #0056b3;
+}
+
+.text-field {
+    -fx-padding: 10px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.vbox {
+    -fx-background-color: #fff;
+    -fx-padding: 20px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0);
+}
